@@ -1,5 +1,6 @@
 package game;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 
@@ -74,6 +75,9 @@ public class Menu implements State {
 		}
 		else
 			menu.render(g);
+		
+		g.setColor(Color.RED);
+		g.drawOval(pointClicked.x-2, pointClicked.y-2, 4, 4);
 		
 	}
 

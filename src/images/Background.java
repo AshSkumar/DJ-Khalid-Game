@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import game.Game;
+import runner.MainLoop;
 
 public class Background {
 	
@@ -25,7 +26,7 @@ public class Background {
 	 */
 	public static void render(Graphics g) {
 			for(int x = 0; x < images.size(); x++)
-				g.drawImage(images.get(x), (int) (1500*x - Game.getxOffset()), 0, 1500, 800, null);	
+				g.drawImage(images.get(x), (int) (MainLoop.ratio*(MainLoop.width*x - Game.getxOffset())), 0, (int)(MainLoop.ratio*MainLoop.width), (int)(MainLoop.ratio*MainLoop.height), null);	
 	}
 
 	public static void setImages(List<BufferedImage> images) {

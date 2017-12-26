@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 
 import game.Game;
 import images.Writer;
+import runner.MainLoop;
 
 
 public abstract class Entity {
@@ -84,10 +85,11 @@ public abstract class Entity {
 	 * @param g -Game's Graphics object
 	 */
 	public void render(Graphics g) {
-		g.drawImage(texture, (int) (x - Game.getxOffset()), (int) (y - Game.getyOffset()), width, height,
+		g.drawImage(texture, (int) (MainLoop.ratio*(x - Game.getxOffset())), (int) (MainLoop.ratio*(y - Game.getyOffset()))+1, 
+				(int)(MainLoop.ratio*width)+1, (int)(MainLoop.ratio*height)+1,
 				 null);
-//		g.setColor(Color.RED);
-//		g.drawRect((int) (hitbox.x - Game.getxOffset()), (int) (hitbox.y - Game.getyOffset()), hitbox.width, hitbox.height);
+		g.setColor(Color.RED);
+		g.drawRect((int) (hitbox.x - Game.getxOffset()), (int) (hitbox.y - Game.getyOffset()), hitbox.width, hitbox.height);
 	}
 	
 

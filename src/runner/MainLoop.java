@@ -1,7 +1,9 @@
 package runner;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Toolkit;
 import java.awt.image.BufferStrategy;
 
 import game.Display;
@@ -21,8 +23,9 @@ public class MainLoop{
 	 */
 	
 	private Display display;
-	public final int width = 1500;
-	public final int height = 800;
+	public static final int width = 1500;
+	public static final int height = 800;
+	public static final double ratio = 0.5;//Toolkit.getDefaultToolkit().getScreenSize().getWidth()/1500;
 	
 	private BufferStrategy bs;
 	private Graphics g;
@@ -37,11 +40,12 @@ public class MainLoop{
 	 */
 	private void init() 
 	{
+		
 		state = new Menu();
 		//Sound.musicBack();
 		keyManager = new KeyManager();
 		
-		display = new Display("Major Key", width, height);
+		display = new Display("Major Key", (int)(ratio*width), (int)(ratio*height));
 		display.getFrame().addKeyListener(keyManager);
 		Pictures.init();
 		state.init();
@@ -134,9 +138,9 @@ public class MainLoop{
 			
 			if(timer >= 1000000000)
 			{
-				//System.out.println("ticks per second: " + ticks);
 				ticks = 0;
 				timer = 0;
+				delta=0;
 			}
 			
 		}

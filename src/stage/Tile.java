@@ -5,6 +5,7 @@ import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
 import game.Game;
+import runner.MainLoop;
 
 public abstract class Tile {
 	
@@ -41,8 +42,8 @@ public abstract class Tile {
 	 * @return returns 1 to signify that the block is solid
 	 */
 	public void render(Graphics g) {
-		g.drawImage(getTexture(), (int) (getX() - Game.getxOffset()), (int) (y - Game.getyOffset()), width, height,
-				 null);
+		g.drawImage(getTexture(), (int) (MainLoop.ratio*(getX() - Game.getxOffset())), (int) (MainLoop.ratio*(y - Game.getyOffset()))+1,
+				(int)(MainLoop.ratio*width)+1, (int)(MainLoop.ratio*height)+1,null);
 	}
 	
 	public Rectangle getHitbox() {

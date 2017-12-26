@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 
 import game.Game;
+import runner.MainLoop;
 
 public class Writer{
 	
@@ -56,9 +57,9 @@ public class Writer{
 		}
 		else
 		{
-			g.setFont(g.getFont().deriveFont(Font.PLAIN, 25));
+			g.setFont(g.getFont().deriveFont(Font.PLAIN, (int)(MainLoop.ratio*25)));
 			g.setColor(Color.WHITE);
-			g.drawString("+" + score, (int) (x - Game.getxOffset()), (int) y);
+			g.drawString("+" + score, (int) (MainLoop.ratio*(x - Game.getxOffset())), (int) (MainLoop.ratio*y));
 		}
 		
 			

@@ -130,18 +130,14 @@ public class Character extends Creature {
 		}
 		
 		//timing to allow/remove attacks every 1 second 
-		if(attackTicks>60){		
+		if(attackTicks>60){	
+			attack.setX(-100);
 			if(move[5]){
 				attack.facingRight = facingRight;
 				attack.setX(getX());
 				attack.setY(getY()+35);
 				attackTicks=0;
-			}
-			else
-			{
-				attack.setY(-100);
-			}
-				
+			}	
 		}
 		attackTicks++;	
 		

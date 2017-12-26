@@ -5,6 +5,8 @@ import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import runner.MainLoop;
+
 public class MouseManager implements MouseListener{
 	
 	private static Point pointClicked = new Point();
@@ -25,7 +27,7 @@ public class MouseManager implements MouseListener{
 	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		pointClicked.setLocation(e.getPoint());
+		pointClicked.setLocation((int)(e.getPoint().getX()/MainLoop.ratio), (int)(e.getPoint().getY()/MainLoop.ratio));
 	}
 
 	@Override

@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 
 import game.Game;
+import runner.MainLoop;
 
 public class Transition {
 
@@ -21,24 +22,24 @@ public class Transition {
 	
 		if(!blackScreen)
 		{
-			if(x>750)
+			if(x>(int)(750*MainLoop.ratio))
 			{
 				blackScreen = true;
-				x = 350;
+				x = (int)(350*MainLoop.ratio);
 				y = 0;
 				endTick = 60;
 				endTick2 = endTick + 240;
 				endTick3 = endTick2 + 60;
 			}
-			x+=750/40;
-			y+=400/40;		
+			x+=(int)(750*MainLoop.ratio)/40;
+			y+=(int)(400*MainLoop.ratio)/40;		
 		}
 		else
 		{
 			if(ticks > endTick)
-				x+=1500/60;
+				x+=(int)(1500*MainLoop.ratio)/60;
 			if(ticks>endTick2)
-				x2+= 1500/60;
+				x2+= (int)(1500*MainLoop.ratio)/60;
 			ticks++;
 		}
 		
@@ -62,22 +63,22 @@ public class Transition {
 		if(!blackScreen)
 		{
 			g.setColor(Color.black);
-			g.fillRect(0, 0, 1500, (int) y);
-			g.fillRect(0, 0, (int) x, 800);
-			g.fillRect(1500-(int)x, 0, (int) x, 800);
-			g.fillRect(0, 800-(int)y, 1500, (int)y);
+			g.fillRect(0, 0, MainLoop.width, (int) y);
+			g.fillRect(0, 0, (int) x, MainLoop.height);
+			g.fillRect(MainLoop.width-(int)x, 0, (int) x, MainLoop.height);
+			g.fillRect(0, MainLoop.height-(int)y, MainLoop.width, (int)y);
 		}
 		else
 		{
 			g.setColor(Color.BLACK);
-			g.fillRect(0, 0, 1500, 800);
+			g.fillRect(0, 0, MainLoop.width, MainLoop.height);
 			g.setColor(Color.RED);
 			g.setFont(new Font(null, Font.BOLD, 120));
-			g.drawString("Stage " + (Game.stageNumber + 1), 500, 200);
-			g.drawImage(Pictures.dj, 400, 300, null);
+			g.drawString("Stage " + (Game.stageNumber + 1), (int)(500*MainLoop.ratio), (int)(200*MainLoop.ratio));
+			g.drawImage(Pictures.dj, (int)(400*MainLoop.ratio), (int)(300*MainLoop.ratio), null);
 			g.setColor(Color.BLACK);
-			g.fillRect((int)x, 0, (int) (1500-x), 800);
-			g.fillRect(0, 0, (int) x2, 800);
+			g.fillRect((int)x, 0, (int) (MainLoop.width-x), MainLoop.height);
+			g.fillRect(0, 0, (int) x2, MainLoop.height);
 		}
 		
 
