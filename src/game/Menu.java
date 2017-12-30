@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 
+import creatures.Entity;
 import images.Background;
 import images.Pictures;
 import keyboard_mouse.MouseManager;
@@ -21,6 +22,7 @@ public class Menu implements State {
 	 */
 	@Override
 	public void init() {
+		Entity.score = 0;
 		Background.setImage(Pictures.menuScreen);
 		pointClicked = MouseManager.getPointClicked();
 		play = new Button(920, 260, Pictures.startButton);

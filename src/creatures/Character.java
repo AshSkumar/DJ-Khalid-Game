@@ -85,14 +85,15 @@ public class Character extends Creature {
 			return;		
 		}
 		
-
+		if(move[1] ^ move[2])
+		{
 		if (move[1]) { // Move left
 			if(speed > -maxSpeed)
 				speed -= .65;
 		} else if (move[2]) { // Move right
 			if(speed < maxSpeed)
 			speed += .65;			
-		} else {
+		}} else {
 			if (speed > 1)
 				speed -= .65;
 			else if (speed < -1)
@@ -266,11 +267,14 @@ public class Character extends Creature {
 		
 		runningCycle.tick();
 	
-		
-		if(move[2])
-			facingRight = true;
-		else if(move[1])
-			facingRight = false;
+		if(move[1] ^ move[2])
+		{
+			if(move[2])
+				facingRight = true;
+			else if(move[1])
+				facingRight = false;
+			
+		}
 		
 		if(powerUpState == 1)
 		{
@@ -278,6 +282,15 @@ public class Character extends Creature {
 				setTexture(Pictures.lion);
 			else
 				setTexture(Pictures.lionReverse);
+			return;
+		}
+		
+		if(!(move[1] ^ move[2]))
+		{
+			if(facingRight)
+				setTexture(sprites[0]);
+			else
+				setTexture(sprites[5]);
 			return;
 		}
 		

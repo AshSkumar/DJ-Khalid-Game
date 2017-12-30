@@ -147,19 +147,23 @@ public class Iguana extends Enemy {
 			if(canMove(0, speedY))
 				setY(getY()+speedY);
 		}
-		if(c.getX() < getX()+getWidth()/2) 
+		
+		if(Math.abs(c.getX() - (getX()+getWidth()/2)) > 3)
 		{
-			if(canMove(-speedX, 0))
-				setX(getX()-speedX);
-			attack.setSpeed(-9);
-			facingRight = false;
-		}
-		else if(c.getX() > getX()+getWidth()/2)
-		{
-			if(canMove(speedX, 0))
-				setX(getX()+speedX);
-			attack.setSpeed(9);
-			facingRight = true;
+			if(c.getX() < getX()+getWidth()/2) 
+			{
+				if(canMove(-speedX, 0))
+					setX(getX()-speedX);
+				attack.setSpeed(-9);
+				facingRight = false;
+			}
+			else if(c.getX() > getX()+getWidth()/2)
+			{
+				if(canMove(speedX, 0))
+					setX(getX()+speedX);
+				attack.setSpeed(9);
+				facingRight = true;
+			}
 		}
 		
 	}

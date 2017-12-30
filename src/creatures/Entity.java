@@ -88,8 +88,8 @@ public abstract class Entity {
 		g.drawImage(texture, (int) (MainLoop.ratio*(x - Game.getxOffset())), (int) (MainLoop.ratio*(y - Game.getyOffset()))+1, 
 				(int)(MainLoop.ratio*width)+1, (int)(MainLoop.ratio*height)+1,
 				 null);
-		g.setColor(Color.RED);
-		g.drawRect((int) (hitbox.x - Game.getxOffset()), (int) (hitbox.y - Game.getyOffset()), hitbox.width, hitbox.height);
+		//g.setColor(Color.RED);
+		//g.drawRect((int) (hitbox.x - Game.getxOffset()), (int) (hitbox.y - Game.getyOffset()), hitbox.width, hitbox.height);
 	}
 	
 

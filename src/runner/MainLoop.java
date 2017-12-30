@@ -25,7 +25,7 @@ public class MainLoop{
 	private Display display;
 	public static final int width = 1500;
 	public static final int height = 800;
-	public static final double ratio = 0.5;//Toolkit.getDefaultToolkit().getScreenSize().getWidth()/1500;
+	public static final double ratio = Toolkit.getDefaultToolkit().getScreenSize().getWidth()/1500;
 	
 	private BufferStrategy bs;
 	private Graphics g;
