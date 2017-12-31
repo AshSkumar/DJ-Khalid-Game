@@ -262,6 +262,16 @@ public class Character extends Creature {
 		
 	}
 
+	
+	public void springJump(){
+		int up = 24;
+		upwardsVelocity = 0;
+		for(int x = 0; x < 26; x++){
+			upwardsVelocity += up;
+			up = up - 2;
+		}
+	}
+	
 	/**
 	 * Updates sprite
 	 */

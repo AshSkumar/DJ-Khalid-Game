@@ -31,7 +31,7 @@ public class Key extends Item{
 	public void interact(Character c) {
 
 		Stage.items.remove(this);
-		addScore(100000);
+		addScore(1000);
 		SoundPlayer.playSound("power_upp.wav", false);
 		
 		
