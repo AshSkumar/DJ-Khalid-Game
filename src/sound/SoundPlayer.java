@@ -20,6 +20,7 @@ public class SoundPlayer {
 				music.stop();
 		
 		Clip clip = null;
+		
 		try {
 			clip = AudioSystem.getClip();
 		} catch (LineUnavailableException e) {

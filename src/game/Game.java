@@ -28,6 +28,7 @@ public class Game implements State {
 	public static int stageNumber = 1;
 	public static boolean closing = false;
 	private static int maxXOffset = 0;
+	private static int scoreSave = 0;
 
 	/**
 	 * Initialize game and starts first level
@@ -53,6 +54,9 @@ public class Game implements State {
 	 * Starts/restarts the stage signified by stageNumber
 	 */
 	public static void loadStage() {
+		
+		Entity.score = scoreSave;
+		
 		writers.clear();
 		closing = false;
 		Background.setImages(Stage.backgrounds);
@@ -80,6 +84,7 @@ public class Game implements State {
 	 * Changes stageNumber and then loads the stage
 	 */
 	public static void loadNextStage() {
+		scoreSave = Entity.score;
 		stageNumber++;
 		loadStage();
 	}

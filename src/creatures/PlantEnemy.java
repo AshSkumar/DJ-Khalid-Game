@@ -46,7 +46,10 @@ public class PlantEnemy extends Enemy{
 	public void tick() {
 		
 		if(getHitbox().intersects(c.attack.getHitbox()))
+		{
 			kill();
+			c.attack.setY(-1000);
+		}
 		
 		if(dead)
 		{

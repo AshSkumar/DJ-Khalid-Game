@@ -469,7 +469,6 @@ public class Character extends Creature {
 				SoundPlayer.playSound("lose.wav", false);
 				Game.loadStage();
 				health=5;
-				score=0;
 			}
 		}
 		
