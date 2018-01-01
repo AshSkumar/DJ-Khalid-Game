@@ -26,7 +26,7 @@ public class Pictures{
 		f = ImageLoader.loadImage("/textures/final.png");
 		d = ImageLoader.loadImage("/textures/DoorF.png");
 		dj = ImageLoader.loadImage("/textures/BlackDJ.jpg");
-		wall = ImageLoader.loadImage("/textures/wall1.jpg");
+		wall = ImageLoader.loadImage("/textures/Wall1.jpg");
 		miami = ImageLoader.loadImage("/textures/miami.jpg");
 		miamiend = ImageLoader.loadImage("/textures/miamiend.jpg");
 		miamihole = ImageLoader.loadImage("/textures/miamihole.jpg");

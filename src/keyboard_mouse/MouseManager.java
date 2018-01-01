@@ -21,7 +21,7 @@ public class MouseManager implements MouseListener{
 		
 		
 	}
-
+	
 	/**
 	 * If mouse clicked, finds point clicked
 	 */
@@ -42,12 +42,12 @@ public class MouseManager implements MouseListener{
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-
+		pointClicked.setLocation((int)(e.getPoint().getX()/MainLoop.ratio), (int)(e.getPoint().getY()/MainLoop.ratio));
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-
+		pointClicked.setLocation((int)(e.getPoint().getX()/MainLoop.ratio), (int)(e.getPoint().getY()/MainLoop.ratio));
 	}
 
 

@@ -5,6 +5,8 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +40,7 @@ public class Stage {
 		Stage.stage = null;items.clear();enemies.clear(); backgrounds.clear();
 		
 		try {
-			read("res/stages/stage" + stage + ".txt");
+			read("/stages/stage" + stage + ".txt");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -54,12 +56,15 @@ public class Stage {
 
 		List<String> lines = new ArrayList<>();
 
-		try (BufferedReader br = new BufferedReader(new FileReader(file))) { //Code to read txt from here: https://stackoverflow.com/questions/2049380/reading-a-text-file-in-java
+		try (
+			InputStream inp = Stage.class.getResourceAsStream(file);
+			BufferedReader br = new BufferedReader(new InputStreamReader(inp));) { //Code to read txt from here: https://stackoverflow.com/questions/2049380/reading-a-text-file-in-java
 			String line;
 			while ((line = br.readLine()) != null) {
 				lines.add(line);
 			}
 		}
+		
 		Stage.stage = null;
 		Tile[][] stage = new Tile[lines.size()][lines.get(0).length()];
 

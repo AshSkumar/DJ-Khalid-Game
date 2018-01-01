@@ -1,4 +1,5 @@
 package sound;
+import java.io.BufferedInputStream;
 import java.io.IOException;
 
 import javax.sound.sampled.AudioInputStream;
@@ -29,7 +30,7 @@ public class SoundPlayer {
         AudioInputStream inputStream = null;
 		try {
 			inputStream = AudioSystem.getAudioInputStream(
-			  Runner.class.getResourceAsStream("/sounds/" + sound));
+			  new BufferedInputStream(Runner.class.getResourceAsStream("/sounds/" + sound)));
 		} catch (UnsupportedAudioFileException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -47,7 +48,7 @@ public class SoundPlayer {
         clip.start();
         
         if(isMusic)
-        	music = clip;
+        		music = clip;
         
 	}
 	

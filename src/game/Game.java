@@ -9,6 +9,7 @@ import creatures.Enemy;
 import creatures.Entity;
 import images.Background;
 import images.Pictures;
+import images.Timer;
 import images.Transition;
 import images.Writer;
 import items.Item;
@@ -29,6 +30,7 @@ public class Game implements State {
 	public static boolean closing = false;
 	private static int maxXOffset = 0;
 	private static int scoreSave = 0;
+	private static Timer timer;
 
 	/**
 	 * Initialize game and starts first level
@@ -47,7 +49,8 @@ public class Game implements State {
 		for (Enemy e : enemies)
 			e.init();
 		SoundPlayer.playSound("mario.wav", true);
-
+		timer = new Timer(600);
+		
 	}
 
 	/**
@@ -78,6 +81,7 @@ public class Game implements State {
 		if(stageNumber==3){
 			Game.setMaxXOffset(8);
 		}
+		timer = new Timer(600);
 	}
 
 	/**
@@ -102,6 +106,7 @@ public class Game implements State {
 
 		dj.tick();
 		stageTick();
+		timer.tick();
 	}	
 	
 	/**
@@ -133,6 +138,7 @@ public class Game implements State {
 		stageRender(g);
 		dj.render(g);
 		Entity.writeScore(g);
+		timer.render(g);
 		
 		for(Writer w: writers)
 			w.render(g);
