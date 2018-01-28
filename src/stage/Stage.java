@@ -12,6 +12,7 @@ import java.util.List;
 
 import creatures.BlockEnemy;
 import creatures.Enemy;
+import creatures.Ghost;
 import creatures.Iguana;
 import creatures.PlantEnemy;
 import images.Pictures;
@@ -23,6 +24,7 @@ import items.Key;
 import items.Lion;
 import items.Shoes;
 import items.Spikes;
+import items.Spring;
 
 public class Stage {
 
@@ -105,6 +107,10 @@ public class Stage {
 				case 'L':
 					items.add(new Lion(blocksRight, blocksDown));
 					break;
+				case 'S':
+					items.add(new Spring(blocksRight, blocksDown));
+					stage[blocksDown][blocksRight] = new Platform(blocksRight, blocksDown, Pictures.clear);
+					break;
 				case 'H':
 					items.add(new Shoes(blocksRight, blocksDown));
 					break;
@@ -118,7 +124,16 @@ public class Stage {
 					enemies.add(new PlantEnemy(blocksRight*Tile.defaultWidth, blocksDown*Tile.defaultHeight, 85, 85, 3, Pictures.plantLeft, Pictures.plantRight));
 					break;
 				case 'p':
-					enemies.add(new PlantEnemy(blocksRight*Tile.defaultWidth, blocksDown*Tile.defaultHeight, 70, 70, 3, Pictures.plantLeft, Pictures.plantRight));
+					enemies.add(new PlantEnemy(blocksRight*Tile.defaultWidth, blocksDown*Tile.defaultHeight, 70, 70, 5, Pictures.plantLeft, Pictures.plantRight));
+					break;
+				case 't':
+					enemies.add(new PlantEnemy(blocksRight*Tile.defaultWidth, blocksDown*Tile.defaultHeight, 50, 50, 7, Pictures.plantLeft, Pictures.plantRight));
+					break;
+				case 'G':
+					enemies.add(new Ghost(blocksRight*Tile.defaultWidth, blocksDown*Tile.defaultHeight, 85, 85, 2, Pictures.plantLeft, Pictures.plantRight));
+					break;
+				case 'g':
+					enemies.add(new Ghost(blocksRight*Tile.defaultWidth, blocksDown*Tile.defaultHeight, 100, 100, 2, Pictures.ghost, Pictures.ghost2));
 					break;
 				case '3':
 					stage[blocksDown][blocksRight] = new Platform(blocksRight, blocksDown, Pictures.spike);
@@ -134,7 +149,7 @@ public class Stage {
 				case 'b': 
 					enemyBlock(blocksRight, blocksDown, Pictures.sand, 8, true);
 					break;				
-				case 'G':
+				case 'I':
 					enemies.add(new Iguana(blocksRight*Tile.defaultWidth, blocksDown*Tile.defaultHeight, 200, 200, 3, Pictures.ghost, Pictures.ghost2));
 					break;
 				}

@@ -4,7 +4,7 @@ import java.awt.image.BufferedImage;
 
 public class Pictures{
 
-	public static BufferedImage exp, f, d, shoes, attack, f1, f2, f3, sand, ghost2, wall, dj, lionReverse, lionPowerup, miami, miamiend, miamihole, miamistart, miaminight, heart, halfHeart, plantLeft, plantRight, Aenemy, ghost, apple, nebula, menuScreen, menuButton, startButton, instructionsButton, e, cb, shwin, dspike, spike, Key, lion;
+	public static BufferedImage exp, f, d, shoes, attack, f1, f2, f3, sand, clear, ghost2, wall, spring, dj, lionReverse, lionPowerup, miami, miamiend, miamihole, miamistart, miaminight, heart, halfHeart, plantLeft, plantRight, Aenemy, ghost, apple, nebula, menuScreen, menuButton, startButton, instructionsButton, e, cb, shwin, dspike, spike, Key, lion;
 	public static BufferedImage[] djSprites = new BufferedImage[12];
 	public static BufferedImage[] fAttack = new BufferedImage[3];
 
@@ -44,15 +44,17 @@ public class Pictures{
 		e = ImageLoader.loadImage("/textures/apple.png");
 		shwin = ImageLoader.loadImage("/textures/instructions.png");
 		spike = ImageLoader.loadImage("/textures/spike.png");
+		spring = ImageLoader.loadImage("/textures/spring.png");
 		dspike = ImageLoader.loadImage("/textures/dspike.png");
 		nebula = ImageLoader.loadImage("/textures/nebula.jpg");
 		plantLeft = ImageLoader.loadImage("/textures/GoombaLeft.png");
 		plantRight = ImageLoader.loadImage("/textures/GoombaRight.png");
 		heart = ImageLoader.loadImage("/textures/heart.png");
+		clear = ImageLoader.loadImage("/textures/clear.png");
 		halfHeart = crop(heart, 0, 0, heart.getWidth()/2, heart.getHeight());
 		Key = ImageLoader.loadImage("/textures/key.png");
-		ghost = ImageLoader.loadImage("/textures/Iggy.png");
-		ghost2 = ImageLoader.loadImage("/textures/Iggy2.png");
+		ghost = crop(ImageLoader.loadImage("/textures/ghost.png"),42,7,40,40);
+		ghost2 = crop(ImageLoader.loadImage("/textures/Ghost_Fliped.png"),34,7,40,40);
 		Aenemy = ImageLoader.loadImage("/textures/Aenemy.png");
 		attack = ImageLoader.loadImage("/textures/record.png");
 		shoes = ImageLoader.loadImage("/textures/shoe.png");
